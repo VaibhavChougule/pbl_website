@@ -64,7 +64,7 @@ const App = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img
-              src="../public/assets/logo3.webp"
+              src="/assets/logo3.webp"
               alt="Logo"
               className="w-16 md:w-24 h-16 md:h-24 rounded-2xl"
             />

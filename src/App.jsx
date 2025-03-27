@@ -10,36 +10,36 @@ const App = () => {
     {
       title: "Automatic Street Lights",
       description: "Uses LDR and motion sensors to turn street lights on/off automatically, improving energy efficiency and safety.",
-      image: "../public/assets/streatlight.png",
+      image: "/assets/streatlight.png",
     },
     {
       title: "Automated Solar Adjustment",
       description: "Adjusts solar panel angles using sensors and motors to maximize energy absorption throughout the day.",
-      image: "/../public/assets/solar.png",
+      image: "//assets/solar.png",
     },
     {
       title: "Gas Leak Detector",
       description: "Detects harmful gas leaks and sends alerts via alarms or notifications, preventing fire hazards.",
-      image: "../public/assets/gasleak.png",
+      image: "/assets/gasleak.png",
     },
     {
       title: "Smart Home",
       description: "Automates home appliances, lighting, and security via IoT, enhancing convenience and energy efficiency.",
-      image: "../public/assets/smarthome.png",
+      image: "/assets/smarthome.png",
     },
     {
       title: "Smart Irrigation System",
       description: "Uses soil moisture sensors to automate watering, conserving water and improving agricultural efficiency.",
-      image: "../public/assets/irrigation.png",
+      image: "/assets/irrigation.png",
     },
     {
       title: "Smart Parking Indicator",
       description: "Detects and indicates empty parking spots using sensors, reducing search time and improving traffic flow.",
-      image: "../public/assets/carparking.png",
+      image: "/assets/carparking.png",
     },
     {
       title: "Custom Choice",
-      image: "../public/assets/custom.png",
+      image: "/assets/custom.png",
       isCustom: true,
     },
   ];

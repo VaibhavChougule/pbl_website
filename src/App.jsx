@@ -4,29 +4,47 @@ const App = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [animatePopup, setAnimatePopup] = useState(false);
   const [showContactPopup, setShowContactPopup] = useState(false);
+  const [visibleProjects, setVisibleProjects] = useState(5);
 
   const projectList = [
     {
-      title: "Smart Home Automation",
-      description: "Control your home appliances remotely using IoT and mobile applications.",
-      image: "/assets/smart-home.jpg",
+      title: "Automatic Street Lights",
+      description: "Uses LDR and motion sensors to turn street lights on/off automatically, improving energy efficiency and safety.",
+      image: "../public/assets/streatlight.png",
     },
     {
-      title: "AI-Powered Chatbot",
-      description: "A chatbot for customer support using natural language processing (NLP).",
-      image: "/assets/chatbot.jpg",
+      title: "Automated Solar Adjustment",
+      description: "Adjusts solar panel angles using sensors and motors to maximize energy absorption throughout the day.",
+      image: "/../public/assets/solar.png",
     },
     {
-      title: "Food Delivery System",
-      description: "A complete web app for ordering food with real-time tracking.",
-      image: "/assets/food-delivery.jpg",
+      title: "Gas Leak Detector",
+      description: "Detects harmful gas leaks and sends alerts via alarms or notifications, preventing fire hazards.",
+      image: "../public/assets/gasleak.png",
     },
     {
-      title: "Arduino Based Weather Station",
-      description: "Collect and display weather data using Arduino and sensors.",
-      image: "/assets/weather-station.jpg",
+      title: "Smart Home",
+      description: "Automates home appliances, lighting, and security via IoT, enhancing convenience and energy efficiency.",
+      image: "../public/assets/smarthome.png",
+    },
+    {
+      title: "Smart Irrigation System",
+      description: "Uses soil moisture sensors to automate watering, conserving water and improving agricultural efficiency.",
+      image: "../public/assets/irrigation.png",
+    },
+    {
+      title: "Smart Parking Indicator",
+      description: "Detects and indicates empty parking spots using sensors, reducing search time and improving traffic flow.",
+      image: "../public/assets/carparking.png",
+    },
+    {
+      title: "Custom Choice",
+      image: "../public/assets/custom.png",
+      isCustom: true,
     },
   ];
+  
+  
 
   const projectTypes = ["Software", "Electronics", "IoT", "Web Development", "Analytics", "Hardware" , "DBMS" , "Mini Projects"];
 
@@ -51,6 +69,17 @@ const App = () => {
       setShowContactPopup(false);
     }
   };
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = "+919322705181";
+    const message = encodeURIComponent("Hello, I want to discuss my custom project requirements.");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
+  const nonCustomProjects = projectList.filter((project) => !project.isCustom);
+  const customProjects = projectList.filter((project) => project.isCustom);
+  const displayedProjects = [...nonCustomProjects.slice(0, visibleProjects), ...customProjects];
+
+ 
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -119,24 +148,33 @@ const App = () => {
       </section>
 
       {/* Projects Section */}
+      
       <section className="py-16 px-8 bg-blue-100">
         <h2 className="text-3xl font-semibold text-center mb-12">Explore Our Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projectList.map((project, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden transition hover:scale-105"
-            >
+          {displayedProjects.map((project, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden transition hover:scale-105">
               <img src={project.image} alt={project.title} className="w-full h-52 object-cover" />
               <div className="p-6">
                 <h3 className="text-xl font-bold">{project.title}</h3>
-                <p className="text-gray-700 mt-2">{project.description}</p>
+                {project.isCustom ? (
+                  <>
+                    <p className="text-gray-700 mt-2">If you have your own idea please text us on WhatsApp (e.g. project idea, YouTube video link [if available])</p>
+                    <button onClick={handleWhatsAppRedirect} className="bg-green-600 text-white px-4 py-2 mt-4 rounded-lg hover:bg-green-700 transition">Chat With us</button>
+                  </>
+                ) : (
+                  <p className="text-gray-700 mt-2">{project.description}</p>
+                )}
               </div>
             </div>
           ))}
         </div>
+        {visibleProjects < nonCustomProjects.length && (
+          <div className="text-center mt-6">
+            <button onClick={() => setVisibleProjects(visibleProjects + 5)} className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Show More</button>
+          </div>
+        )}
       </section>
-
       {/* Contact Section */}
       <section className="bg-blue-50 py-12 text-center">
         <h2 className="text-3xl font-bold">Contact Us</h2>

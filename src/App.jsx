@@ -15,7 +15,7 @@ const App = () => {
     {
       title: "Automated Solar Adjustment",
       description: "Adjusts solar panel angles using sensors and motors to maximize energy absorption throughout the day.",
-      image: "//assets/solar.png",
+      image: "/assets/solar.png",
     },
     {
       title: "Gas Leak Detector",

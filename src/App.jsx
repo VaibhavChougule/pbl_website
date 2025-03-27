@@ -134,7 +134,7 @@ const App = () => {
 
       {/* Project Types Section */}
       <section className="bg-blue-100 py-8 md:py-12">
-        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6">Types of Projects We Create</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6">Types of Projects We Create..</h2>
         <div className="flex flex-wrap justify-center gap-4 md:gap-6 px-4">
           {projectTypes.map((type, index) => (
             <div

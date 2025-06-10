@@ -56,6 +56,9 @@ const App = () => {
     }, 100);  // Delay for animation effect
   }, []);
 
+  //comment
+  //feature added
+
   // Close popup when clicked outside
   const handleOutsideClick = (e) => {
     if (e.target.id === "popup-wrapper") {
